@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from '@reduxjs/toolkit'
+import { catReducer } from './reducers/catReducer'
+import { counterReducer } from './reducers/counterReducer'
+import { Provider } from 'react-redux'
+
+const store = configureStore({
+  reducer: {
+    counter: counterReducer.reducer,
+    cat: catReducer.reducer
+  }
+})
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
