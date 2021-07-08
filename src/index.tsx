@@ -3,17 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { catReducer } from './reducers/catReducer'
 import { counterReducer } from './reducers/counterReducer'
 import { Provider } from 'react-redux'
+import { mySaga } from './saga/saga';
+import createSagaMiddleware from '@redux-saga/core';
+
+const sagaMiddleware= createSagaMiddleware()
 
 const store = configureStore({
   reducer: {
     counter: counterReducer.reducer,
     cat: catReducer.reducer
-  }
+  },
+  middleware: [...getDefaultMiddleware({thunk:false}),sagaMiddleware]
 })
+
+sagaMiddleware.run(mySaga)
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>

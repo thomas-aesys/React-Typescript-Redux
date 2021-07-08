@@ -38,16 +38,17 @@ const initialState: catIniti = {
 export const catReducer = createSlice({
     name: 'cats',
     initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchCat.fulfilled, (state, action) => {
+    reducers: {
+        GET_CAT: () => { },
+        GET_CAT_IMG: (state, action) => {
             state.loading = ''
-            state.cat.push(action.payload[0].url)
-        })
-        builder.addCase(fetchCat.pending, (state) => {
+            state.cat.push(action.payload)
+        },
+        CAT_LOADING: (state) => {
             state.loading = 'loading...'
-        })
+        }
     }
 })
 
+export const {GET_CAT, GET_CAT_IMG, CAT_LOADING} = catReducer.actions
 export default catReducer.reducer
