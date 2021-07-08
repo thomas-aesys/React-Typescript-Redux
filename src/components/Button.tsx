@@ -1,4 +1,5 @@
 import React from 'react'
+import './button.css'
 
 interface Props {
     onClick:()=> void
@@ -6,8 +7,8 @@ interface Props {
 
 const Button:React.FC<Props> = ({ onClick, children }) => {
     return (
-        <div>
-            <button onClick={onClick}>{children}</button>
+        <div className="container_button">
+            <button className="button" onClick={onClick}>{children}</button>
         </div>
     )
 }

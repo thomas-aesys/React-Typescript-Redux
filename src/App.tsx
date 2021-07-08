@@ -7,8 +7,8 @@ import Counter from './components/Counter';
 function App() {
   return (
     <div className="App">
-        <Cat></Cat>
         <Counter></Counter>
+        <Cat></Cat>
     </div>
   );
 }

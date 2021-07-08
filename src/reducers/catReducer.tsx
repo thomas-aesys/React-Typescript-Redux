@@ -25,7 +25,7 @@ export const fetchCat = createAsyncThunk(
 // }
 
 interface catIniti {
-    // cat: Array<{url:string}> NO
+    // cat: Array<{url:string}> NO perche qui ho un array di oggetti contenti stringhe ma nella chiamata mi prendo un array di stringhe
     cat: string[]
     loading: string
 }

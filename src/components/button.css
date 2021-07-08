@@ -1,0 +1,18 @@
+.container_button{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.button{
+    width: 50px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.button:hover{
+    transform: scale(1.1);
+    border: 1px solid gray;
+}
