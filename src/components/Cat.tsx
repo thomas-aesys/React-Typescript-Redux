@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hook'
-import { fetchCat } from '../reducers/catReducer'
+import { GET_CAT } from '../reducers/catReducer'
 import './cat.css'
 
 const Cat = () => {
@@ -10,7 +10,7 @@ const Cat = () => {
     return (
         <div className="container_cat">
             <h1>Cat</h1>
-            <button className="button_cat" onClick={() => dispatch(fetchCat())}>Show Cat</button>
+            <button className="button_cat" onClick={() => dispatch(GET_CAT())}>Show Cat</button>
             <div className="show">
                 {
                     cat.loading ?

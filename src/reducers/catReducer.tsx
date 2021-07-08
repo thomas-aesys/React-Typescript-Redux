@@ -2,14 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
 import React from 'react'
 
-export const fetchCat = createAsyncThunk(
-    'cat/fetchCat',
-    () => {
-        return axios.get('https://api.thecatapi.com/v1/images/search')
-            .then(res => res.data)
-    }
-)
-
 // interface CatFromApi {
 //     url:string
 // }
